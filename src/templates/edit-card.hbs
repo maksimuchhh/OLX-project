@@ -1,0 +1,123 @@
+<div class="backdrop" data-close>
+    <div class="backdrop__modal">
+        <button class="icon-btn">
+            <span class="material-icons" data-close>clear</span>
+        </button>
+        <p class="add-card__title">Редагувати оголошення</p>
+        <form class="add-card__form" novalidate>
+            <ul class="add-card__fields">
+                <li class="add-card__item">
+                    <label class="add-card__label">
+                        <span class="add-card__subtitle">Назва товару</span>
+                        <input class="add-card__input" type="text" name="title" value="{{title}}" required />
+                    </label>
+                    <p class="error-message"></p>
+                </li>
+                <li class="add-card__item photo">
+                    <label class="add-card__label">
+                        <span class="add-card__subtitle">Фото</span>
+                        <ul class="photo-list">
+
+                            {{#if imageUrls}}
+                            {{#each imageUrls}}
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" src="{{ this}}" />
+                            </li>
+                            {{/each}}
+                            {{else}}
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" required />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" />
+                            </li>
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" required />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" />
+                            </li>
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" required />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" />
+                            </li>
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" required />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" />
+                            </li>
+                            <li class="photo-item">
+                                <input id="photoElem" class="photo-input" type="file" name="file" multiple
+                                    accept="image/*" required />
+                                <label for="photoElem" class="photo-label"><span
+                                        class="material-icons">add</span></label>
+                                <img id="output_image" />
+                            </li>
+                            {{/if}}
+
+                        </ul>
+                    </label>
+                </li>
+                <li class="add-card__item">
+                    <label class="add-card__label">
+                        <span class="add-card__subtitle">Опис товару</span>
+                        <textarea rows="3" class="add-card__input description"
+                            name="description">{{description}}</textarea>
+                    </label>
+                    <p class="error-message"></p>
+                </li>
+                <li class="add-card__item">
+                    <label class="add-card__label notice select-field">
+                        <span class="add-card__subtitle">Категорія товару</span>
+                        <select class="add-card__input select-input" name="category" required>
+                            <option value="{{category}}">{{category}}</option>
+                        </select>
+                    </label>
+                    <p class="error-message"></p>
+                </li>
+                <li class="add-card__item">
+                    <label class="add-card__label notice">
+                        <span class="add-card__subtitle">Ціна</span>
+                        <input class="add-card__input price-input" type="number" name="price" step="0.01" min="0"
+                            placeholder=" " value="{{price}}" />
+                        <span class="notice-label">0.00</span>
+                        <span class="price-valuta">грн</span>
+                    </label>
+                    <p class="error-message"></p>
+                </li>
+                <li class="add-card__item">
+                    <label class="add-card__label notice">
+                        <span class="add-card__subtitle">Телефон</span>
+                        <input class="add-card__input" type="tel" name="phone" placeholder=" " value="{{phone}}"
+                            maxlength="13" />
+                        <span class="notice-label">+38 (0--) --- -- --</span>
+                    </label>
+                    <p class="error-message"></p>
+                </li>
+                <li class="add-card__item checkbox-item">
+                    <label class="checkbox-field">
+                        <input class="checkbox" type="checkbox" name="checkbox" />
+                        <span class="checkbox-label">
+                            Видалити оголошення
+                        </span>
+                    </label>
+                </li>
+            </ul>
+            <div class="edit-buttons">
+                <button class="submit-btn on-change" type="submit">Зберегти</button>
+                <button class="submit-btn reset" data-close type="reset">Відміна</button>
+            </div>
+        </form>
+    </div>
+</div>

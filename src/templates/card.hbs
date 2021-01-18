@@ -1,0 +1,31 @@
+<li data-title="{{title}}" class="cardset__item {{fav}}">
+    <a href="{{title}}" class="cardset__link">
+        <picture class="cardset__picture">
+            <img onerror="placeholderIMG('{{_id}}')" data-idp="{{_id}}"" class=" cardset__image"
+                srcset="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}} 352w"
+                sizes="(min-width: 1280px) 25vw,(min-width: 768px) 50vw, (min-width: 480px) and (orientation: landscape) 50vw, 100vw"
+                src="{{#each imageUrls}}{{#unless this}}../img/notImage.png{{/unless}}{{#if @first}}{{this}}{{/if}}{{/each}}"
+                alt="{{title}}" />
+        </picture>
+        <div class="cardset__description">
+            <h4 class="cardset__title">{{title}}</h4>
+            <p>{{#if oldPrice}}<span class="cardset__price del"><span
+                        class="cardset__price old">{{oldPrice}}</span></span>{{/if}}<span
+                    class="cardset__price new">{{price}} грн</span></p>
+        </div>
+        <div class="cardset__overlay" data-liked="{{liked}}">
+            <div class="icons-container">
+                <span data-like data-id="{{_id}}" data-idl data-title="{{title}}"
+                    class=" material-icons cardset__icons size unauthorized {{liked}}">favorite_border</span>
+            </div>
+            <div class="icons-container">
+                <span data-create data-modal="true" data-hbs="6" data-changeid="{{_id}}" data-title="{{title}}"
+                    class=" material-icons cardset__icons size unlogged {{logged}}">create</span>
+            </div>
+            <div class="icons-container">
+                <span data-modal="true" data-hbs="11" data-open data-callid="{{_id}}" data-title="{{title}}"
+                    class="material-icons cardset__icons size">fullscreen</span>
+            </div>
+        </div>
+    </a>
+</li>

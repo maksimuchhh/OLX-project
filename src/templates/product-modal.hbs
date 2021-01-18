@@ -1,0 +1,75 @@
+<div data-modal class="backdrop" data-close>
+    <div class="backdrop__modal modal-product">
+
+        <button class="button-close icon-btn">
+            <span class="material-icons" data-close>clear</span>
+        </button>
+        <div class="modal-content-inner"></div>
+        <div class="modal-content-box">
+            <h4 class="modal-content-box_title">{{title}}</h4>
+            <p class="modal-content-box_code">Код товару | {{__v}}</p>
+        </div>
+        <div class="modal-product-photo-box">
+            <div class="modal-product_photo">
+                <img onerror="placeholderIMG('{{_id}}')" data-idp="{{_id}}" class=" main-modal-product-photo"
+                    srcset="{{#each imageUrls}}{{#if @first}}{{this}}{{/if}}{{/each}}" src="../img/notImage.png"
+                    alt="product photo" />
+            </div>
+            <div class="product-photo-wrapper">
+                <ul class="product-photo-list">
+                    {{#each imageUrls}}
+                    <li class="product-photo-list_item">
+                        <img onerror="placeholderIMG('{{../_id}}{{@index}}')" data-idp="{{../_id}}{{@index}}"
+                            class="product-photo-list-item-img" srcset="{{this}}" src="../img/notImage.png"
+                            alt="product photo" />
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal-content-wrapper">
+            <div class="modal-content-box-down">
+                <h4 class="modal-content-box_title">{{title}}</h4>
+                <p class="modal-content-box_code">Код товару | {{__v}}</p>
+            </div>
+            <p class="modal-content-wrapper_price">{{price}} грн</p>
+            <div class="modal-button-box-position">
+                <div class="modal-button-box-info">
+                    <p class="button-info_text">
+                        <span class="button-info_accent">Ольга</span><span> - на OLX с нояб. 2018</span>
+                    </p>
+                    <a class="button-info_text-number" href="tel:{{phone}}">{{phone}}</a>
+                    </p>
+                </div>
+                <div class="modal-button-box">
+                    Информация о <br />
+                    продавце
+                </div>
+            </div>
+            <div class="modal-actions">
+                <ul class="actions-list">
+                    <li class="actions-item {{out}}">
+                        <button class="actions-item_button {{out}}">
+                            <p class="actions-item_title" data-id="{{_id}}">
+                                {{#if liked}}З обраного{{else}}В обране{{/if}}
+                            </p>
+                            <span class="material-icons md-16 product-favorite-icon {{liked}}" data-id="{{_id}}"
+                                data-ids>favorite_border</span>
+                        </button>
+                    </li>
+                    <li class="actions-item">
+                        <button class="actions-item_button">
+                            <p class="actions-item_title">Поділитися</p>
+                            <span class="material-icons md-16" width="10px">share</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <p class="modal-text-title">Опис:</p>
+            <p class="modal-text">
+                {{description}}
+            </p>
+        </div>
+    </div>
+</div>
